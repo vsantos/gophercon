@@ -1,6 +1,6 @@
-# mdx-deck basic template
+# Gophercon 2019 - istiops
 
-This was generated with [mdx-deck][]'s `npm init deck` command.
+This presentation is about [istiops](https://github.com/pismo/istiops) openSource project made for Gophercon Brazil - 2019
 
 ## Development
 
