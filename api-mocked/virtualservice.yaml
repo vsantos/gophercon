@@ -1,0 +1,20 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  labels:
+    app: api-mocked
+  name: api-mocked-internal-virtualservice
+  namespace: istiops
+spec:
+  hosts:
+  - api-mocked
+  http:
+  - match:
+    - uri:
+        regex: .+
+    route:
+    - destination:
+        host: api-mocked
+        port:
+          number: 5000
+        subset: v100

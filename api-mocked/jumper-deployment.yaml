@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jump
+  namespace: istiops
+spec:
+  selector:
+    matchLabels:
+      app: jump
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "true"
+      labels:
+        app: jump
+    spec:
+      containers:
+      - name: jump
+        image: ubuntu:18.04
+        command: ["/bin/sleep", "infinity"]

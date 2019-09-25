@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+  name: api-mocked
+  namespace: istiops
+spec:
+  ports:
+  - name: http-api-mocked
+    port: 5000
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: api-mocked
+  sessionAffinity: None
+  type: ClusterIP

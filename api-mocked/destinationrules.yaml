@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  labels:
+    app: api-mocked
+  name: api-mocked-destination-rules
+  namespace: istiops
+spec:
+  host: api-mocked
+  subsets:
+  - labels:
+      app: api-mocked
+      version: "1.0.0"
+    name: v100
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
+

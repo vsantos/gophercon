@@ -1,0 +1,26 @@
+## Clear them all
+istiops traffic clear --label-selector app=api-mocked --namespace istiops
+
+## Get all Traffic
+
+istiops traffic show --label-selector app=api-mocked --namespace istiops --output beauty
+
+## Set some nice traffic
+
+istiops traffic shift \
+    --namespace istiops \
+    --build 1 \
+    --label-selector app=api-mocked \
+    --headers x-gophercon=2019,x-id=3 \
+    --pod-selector version=1.0.0 \
+    --destination api-mocked:5000
+
+## Set some real traffic!
+
+istiops traffic shift \
+    --namespace istiops \
+    --build 2 \
+    --label-selector app=api-mocked \
+    --weight 20 \
+    --pod-selector app=api-mocked,version=2.0.0 \
+    --destination api-mocked:5000
