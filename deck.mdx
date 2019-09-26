@@ -29,12 +29,12 @@ Estratégias de deploy do Istio com Golang
 <img style={{ width: '150px', height:'50px', marginBottom: '10vh'}} src='assets/imgs/pismo.png' />
 
 <Notes>
-  <p>- Segurança: mTLS, funciona bem com k8s network policy</p>
-  <p>- Paginar todo mundo em relação ao Istio</p>
-  <p>- Modelos de deployment: istio multi-clusters</p>
-  <p>- Tráfego: A/B test, canary release, weight release</p>
+  <p>- Quick self-introduction</p>
+  <p>- O que vamos falar hoje?</p>
+  <p>- estratégias: rolling, canary, weight</p>
+  <p>- Canary + weight usando istio</p>
+  <p>- Paginar em relação ao Istio</p>
 </Notes>
-
 
 ---
 <!-- Slide 01 -->
@@ -88,7 +88,6 @@ Estratégias de deploy do Istio com Golang
 
   - VirtualServices
   - DestinationRules
-  - Sidecar
 
 <Notes>
   script
@@ -104,7 +103,7 @@ Estratégias de deploy do Istio com Golang
 
   <h2>Barreiras</h2>
 
-  - Dífícil manutenção
+  - Difícil manutenção
   - Difícil de conseguir um estado atual dos tráfegos
   - Componentes sensíveis
 
@@ -234,9 +233,9 @@ size="60vw"
     steps={[
       { notes: 'Set new traffic based on headers' },
       { lines: [2], notes: "Build" },
-      { lines: [3], notes: "Destination" },
-      { lines: [4], notes: "Labels" },
-      { lines: [5], notes: "Request Headers" },
+      { lines: [3], notes: "Labels" },
+      { lines: [4], notes: "Request Headers" },
+      { lines: [5], notes: "Destination" },
       { lines: [6], notes: "Pod Selector" },
     ]}
   />
@@ -283,6 +282,10 @@ size="60vw"
   <ComparisonChart>
   </ComparisonChart>
 </LayoutStyled>
+
+<Notes>
+  <p> Jenkins via Shell versus Golang </p>
+</Notes>
 
 ---
 
@@ -411,7 +414,7 @@ size="70vw"
 
 <https://github.com/pismo/istiops> [project]
 
-<https://github.com/vsantos/gophercon> [presentation]
+<https://vsantos.github.io/gophercon> [presentation]
 
 <https://pismo.io/> [We are hiring :eyes:]
 
